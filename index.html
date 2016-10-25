@@ -10,17 +10,20 @@
   <body>
     <div class="container">
       <h1>Word Puzzle</h1>
+      <div class="disappear">
       <h2>Can you solve the word puzzle?</h2>
 
         <form>
-
-          <label for "sentence">Please enter a sentence: </label>
+          <label for="sentence">Please enter a sentence: </label>
           <input id="sentence" class="form-control" type="text">
-
           <br>
           <button type="submit" class="btn btn-danger">Submit</button>
           <br>
         </form>
+      </div>
+      <div id="hidden">
+      <h2>Can you solve the puzzle?</h2>
+        <h3 id="dashed"></h3>
         <!-- <div class="celebrityMatch">
           <p class="celebrity1">You belong with Madonna!
             <img src="img/madonna.jpg" alt="photo of Madonna"></p>

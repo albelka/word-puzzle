@@ -1,29 +1,31 @@
+var puzzle = [];
+
 var makeArray = function(sentence){
-  var sentenceArray =sentence.split("");
+  var sentenceArray = sentence.split("");
   return sentenceArray;
 }
 
-var insertDashes = function(sentenceArray) {
-  for(i=0; i<sentenceArray.length; i++) {
-    if(sentenceArray[i] === "a" || sentenceArray[i] === "e" || sentenceArray[i] === "i" || sentenceArray[i] === "o" || sentenceArray[i] === "u") {
-      sentenceArray[i] = "-";
-      var puzzle = sentenceArray.join();
-      alert(sentenceArray);
-      return puzzle;
-    } else {
-      return "Please enter a sentence with vowels!";
+var insertDashes = function(sentence) {
+  var sentenceArray2 = makeArray(sentence);
+
+  for(var i = 0; i < sentenceArray2.length; i += 1 ) {
+    if (sentenceArray2[i] === "a" || sentenceArray2[i] === "e" || sentenceArray2[i] === "i" || sentenceArray2[i] === "o" || sentenceArray2[i] === "u" ) {
+      sentenceArray2[i] = "-";
     }
     }
+    return sentenceArray2;
   }
 
 
 $(document).ready(function(){
   $("form").submit(function(event){
     var inputSentence = $("input#sentence").val();
-// console.log(inputSentence);
-    // makeArray(inputSentence);
-    insertDashes(makeArray(inputSentence));
-      alert(puzzle);
+    var puzzle = insertDashes(inputSentence);
+    var puzzle = puzzle.join(" ");
+
+    $("#hidden").show();
+    $("#dashed").text(puzzle);
+    $(".disappear").hide();
     event.preventDefault();
   });
 });
